@@ -1,14 +1,17 @@
 #include <string>
 #include <cstring>
-#include "sfwdraw.h"
+#include <iostream>
 
 
 void main()
 {
-	const int screenW = 800, screenH = 600;
-	const std::string title = "Test";
-	sfw::initContext(screenW, screenH, title.c_str);
+	int fir = 0, sec = 0;
 
+	std::cin >> fir >> sec;
+	
+	std::cout << sec << " " << fir;
+	
 
+	system("pause");
 	return;
 }

@@ -23,14 +23,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="SFW.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sfwdraw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="string.h">
       <Filter>Header Files</Filter>
     </ClInclude>

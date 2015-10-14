@@ -77,7 +77,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SFW.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,10 +123,6 @@
     <ClCompile Include="string.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="SFW.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sfwdraw.h" />
     <ClInclude Include="string.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
