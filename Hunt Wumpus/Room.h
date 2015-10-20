@@ -36,7 +36,7 @@ struct Room
 		bats = a.bats;
 		pit = a.pit;
 		numRooms = a.numRooms;
-		if (numRooms > 0)
+		if (numRooms > 0 && a.adjacent)
 		{
 			adjacent = new int[numRooms];
 			for (int i = 0; i < numRooms; i++)
