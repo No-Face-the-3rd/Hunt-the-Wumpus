@@ -10,13 +10,13 @@ Game::Game()
 	char tmp[20];
 	srand(time(NULL));
 	tmp[0] = '\0';
-	file.open("Room_Info.txt", std::ios_base::out);
 	file.close();
-	file.open("Room_Info.txt", std::ios_base::in | std::ios_base::out);
+	file.open("Room_Info.txt", std::ios_base::in);
 	file >> tmp;
+	file.close();
 	if (tmp[0] == '\0')
 	{
-
+		file.open("Room_Info.txt", std::ios_base::out);
 		file << "Rooms: 20\nColumns: 5\nConnected: 4\nWumpus: 1\nBats: 2\nPits: 2\nArrows: 5";
 		file.close();
 		numRooms = 20;
@@ -29,7 +29,9 @@ Game::Game()
 	}
 	else
 	{
+		file.open("Room_Info.txt", std::ios_base::in);
 		file >> tmp >> numRooms >> tmp >> columns >> tmp >> numConnect >> tmp >> numWumpus >> tmp >> numBats >> tmp >> numPits >> tmp >> numArrows;
+		file.close();
 		if (numRooms > 40)
 			numRooms = 40;
 		else if (numRooms <= 10)
@@ -60,9 +62,10 @@ Game::Game()
 			numPits = numRooms / 6;
 		else if (!numPits)
 			numPits = 1;
+		file.open("Room_Info.txt", std::ios_base::out);
 		file << "Rooms: " << numRooms << "\nColumns: " << columns << "\nConnected: " << numConnect << "\nWumpus: " << numWumpus << "\nBats: " << numBats << "\nPits: " << numPits << "\nArrows: " << numArrows;
+		file.close();
 	}
-	file.close();
 	stateTypes[0] = " ";
 	stateTypes[1] = "You are in room ";
 	stateTypes[2] = "You were evaporated by a wumpus!";
@@ -183,9 +186,9 @@ Game::Game()
 Game::~Game()
 {
 	if(!layout)
-		delete layout;
+		delete[] layout;
 	if(!rooms)
-		delete rooms;
+		delete[] rooms;
 }
 
 STATE Game::update()
@@ -286,13 +289,13 @@ void Game::checkRooms()
 void Game::newGame()
 {
 	if(!layout)
-		delete layout;
+		delete[] layout;
 	layout = new int[numRooms];
 	for (int i = 0; i < numRooms; i++)
 		layout[i] = i;
 	std::random_shuffle(&layout[0], &layout[numRooms]);
 	if(!rooms)
-		delete rooms;
+		delete[] rooms;
 	rooms = new Room[numRooms];
 	for (int i = 0; i < numRooms; i++)
 	{

@@ -155,7 +155,7 @@ sfw::string & sfw::string::operator=(string && a)
 	// TODO:
 	if (m_data != a.m_data)
 	{
-		delete m_data;
+		delete[] m_data;
 		m_size = a.m_size;
 		m_data = a.m_data;
 		a.m_data = new char[a.m_size = 1]{ '\0' };
@@ -214,7 +214,7 @@ void sfw::string::resize(size_t size)
 	// TODO:
 	if (!size)
 	{
-		delete m_data;
+		delete[] m_data;
 		m_data = new char[m_size = 1]{ '\0' };
 		return;
 	}
@@ -239,7 +239,7 @@ void sfw::string::resize(size_t size)
 		strncpy_s(temp, size, m_data, length());
 		temp[length()] = '\0';
 	}
-	delete m_data;
+	delete[] m_data;
 	m_data = temp;
 	temp = nullptr;
 	

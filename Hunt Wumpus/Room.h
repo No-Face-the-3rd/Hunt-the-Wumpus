@@ -25,13 +25,13 @@ struct Room
 	~Room() 
 	{ 
 		if (!adjacent) 
-			delete adjacent; 
+			delete[] adjacent; 
 	}
 
 	Room &operator=(const Room &a)
 	{
 		if (!adjacent)
-			delete adjacent;
+			delete[] adjacent;
 		wumpus = a.wumpus;
 		bats = a.bats;
 		pit = a.pit;

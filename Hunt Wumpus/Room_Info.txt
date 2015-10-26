@@ -1,0 +1,7 @@
+Rooms: 20
+Columns: 5
+Connected: 4
+Wumpus: 1
+Bats: 2
+Pits: 2
+Arrows: 5
