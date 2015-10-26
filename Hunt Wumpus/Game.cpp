@@ -52,8 +52,8 @@ Game::Game()
 			numWumpus = numRooms / 4;
 		else if (!numWumpus)
 			numWumpus = 1;
-		else if (numWumpus > numArrows)
-			numWumpus = numArrows;
+		if (numWumpus > numArrows)
+			numArrows = numWumpus;
 		if (numBats > numRooms / 4)
 			numBats = numRooms / 4;
 		else if (!numBats)
