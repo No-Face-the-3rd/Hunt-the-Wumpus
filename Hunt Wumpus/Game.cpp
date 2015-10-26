@@ -407,7 +407,7 @@ void Game::move()
 	int room;
 	std::cout << "Enter the room in which you wish to move: ";
 	std::cin >> room;
-	if (room - 1 >= 0 && room < numRooms)
+	if (room - 1 >= 0 && room - 1 < numRooms)
 		for (int i = 0; i < numConnect; i++)
 			if (room - 1 == rooms[currentRoom].adjacent[i])
 			{
